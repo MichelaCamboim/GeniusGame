@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css?family=Original+Surfer&effect=emboss");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Original Surfer", cursive;
+}
+
+body {
+  background-color: #4e4b4b;
+}
+
+/* button são as duas checkbox*/
+.button {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/*botão play*/
+#play {
+  border-radius: 95% !important;
+  font-size: 1.5em;
+  background-color: lightgray;
+  padding: 2px 2px;
+}
+
+/*btn-center inclui os 3 botoes do centro*/
+#btn-center {
+  position: absolute;
+  font-family: "Original Surfer", cursive;
+  margin-left: 25px;
+  margin-right: 20px;
+  margin-top: 110px;
+  display: flex;
+}
+
+/*text2 é o count*/
+.text2 {
+  position: absolute;
+  font-family: "Original Surfer", cursive;
+  margin-left: 83px;
+  margin-top: 197px;
+  margin-right: 83px;
+  padding-left: 5px;
+}
+
+/* palavras power e strict*/
+.text1 {
+  position: absolute;
+  font-family: "Original Surfer", cursive;
+  margin-left: 20px;
+  margin-right: 24px;
+  margin-top: 142px;
+}
+
+/* o span abaixo é o texto strict*/
+
+.text1 span:last-child {
+  padding-left: 70px;
+}
+
+/*titulo é o nome GENIUS*/
+#title {
+  font-family: "Original Surfer", cursive;
+  position: absolute;
+  font-size: 45px;
+  margin-left: 20px;
+  margin-top: 40px;
+  display: flex;
+}
+
+.font-effect-emboss {
+  text-shadow: 0px 1px 1px #fff, 0 -1px 1px #000;
+  color: #ddd;
+}
+
+/*TURN É A CAIXINHA CONTADOR*/
+#turn {
+  position: absolute;
+  background: #330000;
+  color: red;
+  font-family: courier;
+  font-size: 20px;
+  height: 30px;
+  width: 50px;
+  margin-left: 90px;
+  margin-top: 170px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+#outer-circle {
+  background: black;
+  border-radius: 50%;
+  height: 500px;
+  width: 500px;
+  position: relative;
+  border-style: double;
+  border-width: 20px;
+  margin: auto;
+  margin-top: 60px;
+  box-shadow: 8px 8px 15px 5px #888888;
+}
+
+#topLeft {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border-radius: 250px 0 0 0;
+  -moz-border-radius: 250px 0 0 0;
+  -webkit-border-radius: 250px 0 0 0;
+  background: darkgreen;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0px 0px -250px;
+  border-style: solid;
+  border-width: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#topRight {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border-radius: 0 250px 0 0;
+  -moz-border-radius: 0 250px 0 0;
+  -webkit-border-radius: 0 250px 0 0;
+  background: darkred;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0px 0px 0px;
+  border-style: solid;
+  border-width: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#bottomLeft {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border-radius: 0 0 0 250px;
+  -moz-border-radius: 0 0 0 250px;
+  -webkit-border-radius: 0 0 0 250px;
+  background: goldenrod;
+  top: 50%;
+  left: 50%;
+  margin: 0px -250px 0px -250px;
+  border-style: solid;
+  border-width: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#bottomRight {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border-radius: 0 0 250px 0;
+  -moz-border-radius: 0 0 250px 0;
+  -webkit-border-radius: 0 0 250px 0;
+  background: darkblue;
+  top: 50%;
+  left: 50%;
+  margin: 0px 0px -250px 0px;
+  border-style: solid;
+  border-width: 5px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#inner-circle {
+  position: absolute;
+  background: grey;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  border-style: solid;
+  border-width: 10px;
+  top: 50%;
+  left: 50%;
+  margin: -125px 0px 0px -125px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}

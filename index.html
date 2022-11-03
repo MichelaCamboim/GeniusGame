@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <audio id="clip1">
+      <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></source>
+    </audio>
+    <audio id="clip2">
+      <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></source>
+    </audio>
+    <audio id="clip3">
+      <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></source>
+    </audio>
+    <audio id="clip4">
+      <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></source>
+    </audio>
+    <title>GENIUS</title>
+  </head>
+  <body>        
+        <div id="outer-circle" class="outer-circle">
+          <div id="topLeft" class="item topLeft"></div>
+          <div id="topRight" class="item topRight"></div>
+          <div id="bottomLeft" class="item bottomLeft"></div>
+          <div id="bottomRight" class="item bottomRight"></div>
+        </div>
+        <div id="inner-circle">
+          <div id="title" class="font-effect-emboss">GENIUS</div>
+          <div id="btn-center">
+            <input type="checkbox" id="on" class="button" />
+            <button id="play">Play</button>
+            <input type="checkbox" id="strict" class="button"/>
+          </div>
+          <div class="text1">
+            <span>Power</span> <span>Strict</span>
+          </div>
+          <div id="turn"></div>
+          <div class="text2">Count</div>
+        </div>
+        <script src="./js/class.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
