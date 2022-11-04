@@ -2,7 +2,7 @@ class GiniusGame {
   constructor() {
     this.order = []; // vai acompanhar a ordem das luzes
     this.playerOrder = [];
-    this.light = 0;
+    this.flash = 0;
     this.turn = 0;
     this.on = false; // se o botão power está ligado ou não
     this.strict = false; //botão ligado ou desligado
@@ -38,7 +38,7 @@ class GiniusGame {
     this.win = false;
     this.order = [];
     this.playerOrder = [];
-    this.light = 0;
+    this.flash = 0;
     this.intervalId = 0;
     this.turn = 1;
     this.turnCounter.innerHTML = 1;
@@ -48,18 +48,18 @@ class GiniusGame {
     }
     this.compTurn = true;
     //console.log(this.turn);
-    //console.log(this.light);
+    //console.log(this.flash);
     //console.log(this.compTurn);
 
     this.intervalId = setInterval(() => {
       this.on = false; // quando on é false, nenhuma luz acende
       console.log("dentro do gameturn");
 
-      // quando o número de lights = número mostrado no count
+      // quando o número de flashs = número mostrado no count
       // a vez do computador acabou
       // primeiro if: se a vez do computador acabou, então:
 
-      if (this.light == this.turn) {
+      if (this.flash == this.turn) {
         console.log("dentro do gameturn if");
         clearInterval(this.intervalId);
         this.compTurn = false;
@@ -70,19 +70,19 @@ class GiniusGame {
       if (this.compTurn == true) {
         this.clearColor();
         setTimeout(() => {
-          if (this.order[this.light] == 1) {
+          if (this.order[this.flash] == 1) {
             this.one();
           }
-          if (this.order[this.light] == 2) {
+          if (this.order[this.flash] == 2) {
             this.two();
           }
-          if (this.order[this.light] == 3) {
+          if (this.order[this.flash] == 3) {
             this.three();
           }
-          if (this.order[this.light] == 4) {
+          if (this.order[this.flash] == 4) {
             this.four();
           }
-          this.light++;
+          this.flash++;
         }, 200);
       }
     }, 800);
@@ -128,7 +128,7 @@ class GiniusGame {
     this.bottomRight.style.backgroundColor = "lightskyblue";
   }
 
-  lightColor() {
+  flashColor() {
     this.topLeft.style.backgroundColor = "lightgreen";
     this.topRight.style.backgroundColor = "tomato";
     this.bottomLeft.style.backgroundColor = "yellow";
@@ -158,7 +158,7 @@ class GiniusGame {
     }
 
     if (this.allRight == false) {
-      this.lightColor();
+      this.flashColor();
       this.turnCounter.innerHTML = "NO!";
       setTimeout(() => {
         this.turnCounter.innerHTML = this.turn;
@@ -170,17 +170,17 @@ class GiniusGame {
           this.play();
         } else {
           this.compTurn = true;
-          this.light = 0;
+          this.flash = 0;
           this.playerOrder = [];
           this.allRight = true;
           this.intervalId = setInterval(() => {
             this.on = false; // quando on é false, nenhuma luz acende
 
-            // quando o número de lights = número mostrado no count
+            // quando o número de flashs = número mostrado no count
             // a vez do computador acabou
             // primeiro if: se a vez do computador acabou, então:
 
-            if (this.light == this.turn) {
+            if (this.flash == this.turn) {
               clearInterval(this.intervalId);
               this.compTurn = false;
               this.clearColor();
@@ -190,19 +190,19 @@ class GiniusGame {
             if (this.compTurn == true) {
               this.clearColor();
               setTimeout(() => {
-                if (this.order[this.light] == 1) {
+                if (this.order[this.flash] == 1) {
                   this.one();
                 }
-                if (this.order[this.light] == 2) {
+                if (this.order[this.flash] == 2) {
                   this.two();
                 }
-                if (this.order[this.light] == 3) {
+                if (this.order[this.flash] == 3) {
                   this.three();
                 }
-                if (this.order[this.light] == 4) {
+                if (this.order[this.flash] == 4) {
                   this.four();
                 }
-                this.light++;
+                this.flash++;
               }, 200);
             }
           }, 700);
@@ -218,17 +218,17 @@ class GiniusGame {
       this.turn++;
       this.playerOrder = [];
       this.compTurn = true;
-      this.light = 0;
+      this.flash = 0;
       this.turnCounter.innerHTML = this.turn;
       this.intervalId = setInterval(() => {
         this.on = false; // quando on é false, nenhuma luz acende
         //console.log("dentro do gameturn");
 
-        // quando o número de lights = número mostrado no count
+        // quando o número de flashs = número mostrado no count
         // a vez do computador acabou
         // primeiro if: se a vez do computador acabou, então:
 
-        if (this.light == this.turn) {
+        if (this.flash == this.turn) {
           console.log("dentro do gameturn if");
           clearInterval(this.intervalId);
           this.compTurn = false;
@@ -239,19 +239,19 @@ class GiniusGame {
         if (this.compTurn == true) {
           this.clearColor();
           setTimeout(() => {
-            if (this.order[this.light] == 1) {
+            if (this.order[this.flash] == 1) {
               this.one();
             }
-            if (this.order[this.light] == 2) {
+            if (this.order[this.flash] == 2) {
               this.two();
             }
-            if (this.order[this.light] == 3) {
+            if (this.order[this.flash] == 3) {
               this.three();
             }
-            if (this.order[this.light] == 4) {
+            if (this.order[this.flash] == 4) {
               this.four();
             }
-            this.light++;
+            this.flash++;
           }, 200);
         }
       }, 700);
@@ -259,7 +259,7 @@ class GiniusGame {
   }
 
   winGame() {
-    this.lightColor();
+    this.flashColor();
     this.turnCounter.innerHTML = "WIN!";
     this.on = false; // aqui o jogador não consegue mais clicar em nada
     this.win = true;
