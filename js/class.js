@@ -8,8 +8,8 @@ class GiniusGame {
     this.strict = false; //botão ligado ou desligado
     this.win = false; // se o player ganhou ou não
     this.compTurn = false; //(true or false)
-    this.sound = true; // sound é o som
-    this.allRight = true; // se o player não errou ainda (true or false)
+    this.noise = true; // noise é o som
+    this.correct = true; // se o player não errou ainda (true or false)
     this.intervalId = null; // a ordem aleatória se repete no intervalo
     this.topLeft = document.querySelector("#topLeft");
     this.topRight = document.querySelector("#topRight");
@@ -26,6 +26,7 @@ class GiniusGame {
     this.bottomLeft.style.backgroundColor = "goldenrod";
     this.bottomRight.style.backgroundColor = "darkblue";
   }
+
   /*
     quanto aperta o botão play, primeria função chamada é play()
     função play é um loop com todas as jogadas da máquina.
@@ -34,6 +35,7 @@ class GiniusGame {
     nomeadas por números. ela continua gerando esse loop até que o número de
     luzes que piscaram se igualem ao número mostrado no count (que é a partida)
 */
+
   play() {
     this.win = false;
     this.order = [];
@@ -42,7 +44,7 @@ class GiniusGame {
     this.intervalId = 0;
     this.turn = 1;
     this.turnCounter.innerHTML = 1;
-    this.allRight = true;
+    this.correct = true;
     for (let i = 0; i < 20; i++) {
       this.order.push(Math.floor(Math.random() * 4) + 1);
     }
@@ -93,38 +95,38 @@ class GiniusGame {
   um som diferente. */
 
   one() {
-    if (this.sound) {
+    if (this.noise) {
       let audio = document.getElementById("clip1");
       audio.play();
     }
-    this.sound = true;
+    this.noise = true;
     this.topLeft.style.backgroundColor = "lightgreen";
   }
 
   two() {
-    if (this.sound) {
+    if (this.noise) {
       let audio = document.getElementById("clip2");
       audio.play();
     }
-    this.sound = true;
+    this.noise = true;
     this.topRight.style.backgroundColor = "tomato";
   }
 
   three() {
-    if (this.sound) {
+    if (this.noise) {
       let audio = document.getElementById("clip3");
       audio.play();
     }
-    this.sound = true;
+    this.noise = true;
     this.bottomLeft.style.backgroundColor = "yellow";
   }
 
   four() {
-    if (this.sound) {
+    if (this.noise) {
       let audio = document.getElementById("clip4");
       audio.play();
     }
-    this.sound = true;
+    this.noise = true;
     this.bottomRight.style.backgroundColor = "lightskyblue";
   }
 
@@ -139,7 +141,7 @@ class GiniusGame {
   quando o jogador aperta qualquer botão de cores (esses eventlistenes estão no
     arquivo index.js) os eventlisteners dos botões coloridos chamam a função check()
     
-    a função check verifica se o jogador fez tudo correto (allRight)
+    a função check verifica se o jogador fez tudo correto (correct)
     se sim, ele verifica se o player ganhou o jogo, se não, passa a vez pra máquina
     se errar, e o botão strict não tiver marcado, ele fica repetindo a sequencia
     daquela partida até o player acertar
@@ -150,14 +152,14 @@ class GiniusGame {
       this.playerOrder[this.playerOrder.length - 1] !==
       this.order[this.playerOrder.length - 1]
     ) {
-      this.allRight = false;
+      this.correct = false;
     }
 
-    if (this.playerOrder.length == 20 && this.allRight) {
+    if (this.playerOrder.length == 20 && this.correct) {
       this.winGame();
     }
 
-    if (this.allRight == false) {
+    if (this.correct == false) {
       this.flashColor();
       this.turnCounter.innerHTML = "NO!";
       setTimeout(() => {
@@ -172,15 +174,17 @@ class GiniusGame {
           this.compTurn = true;
           this.flash = 0;
           this.playerOrder = [];
-          this.allRight = true;
+          this.correct = true;
           this.intervalId = setInterval(() => {
             this.on = false; // quando on é false, nenhuma luz acende
+            console.log("dentro do gameturn");
 
             // quando o número de flashs = número mostrado no count
             // a vez do computador acabou
             // primeiro if: se a vez do computador acabou, então:
 
             if (this.flash == this.turn) {
+              console.log("dentro do gameturn if");
               clearInterval(this.intervalId);
               this.compTurn = false;
               this.clearColor();
@@ -211,10 +215,10 @@ class GiniusGame {
       // se o strict tiver apertado, vou repetir tudo, comecando do zero
       // strict false, começo de onde parei
 
-      this.sound = false; // estamos no allRight=false, jogador errou, nenhum som toca
+      this.noise = false; // estamos no correct=false, jogador errou, nenhum som toca
     }
     // abaixo o jogador acertou a ordem, mas ainda não ganhou o jogo
-    if (this.turn == this.playerOrder.length && this.allRight && !this.win) {
+    if (this.turn == this.playerOrder.length && this.correct && !this.win) {
       this.turn++;
       this.playerOrder = [];
       this.compTurn = true;
