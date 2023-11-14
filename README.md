@@ -3,7 +3,7 @@
 </h1>
 
 <h2 align="justify">
-Projeto criado para o curso de Desenvolvimento Web da Ironhack - Outubro de 2022.
+Projeto criado para o curso de Desenvolvimento Web da Ironhack - Outubro/2022.
 </h2>
 
 <p align="justify">
@@ -24,3 +24,6 @@ Genius é um jogo clássico de habilidade e memória, e ao longo dos anos, vári
 <h2 align="justify">
  Jogo desenvolvido em JavaScript puro, CSS e manipulação do DOM.
 </h2>
+
+https://michelacamboim.github.io/GeniusGame/
+
